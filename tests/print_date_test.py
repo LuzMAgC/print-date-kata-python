@@ -9,8 +9,9 @@ from tests.printer_fake import PrinterFake
 class PrintDateTest(unittest.TestCase):
 
     def test_print_current_date_using_doubles_created_by_me(self):
-        print_date = PrintDate(CalendarStub(), PrinterFake())
+        printer = PrinterFake()
+        print_date = PrintDate(CalendarStub(), printer)
 
         print_date.print_current_date()
 
-        self.assertEqual(print_date.printer.line, datetime_dummy)
+        self.assertEqual(printer.line, datetime_dummy)
